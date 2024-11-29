@@ -1,3 +1,5 @@
+from matplotlib.font_manager import weight_dict
+
 from classes import Student
 
 
@@ -11,8 +13,10 @@ class Course:
         self.enrollment = 0
         self.weight = {}
 
-    def get_enrollment(self, all_students: list[Student]):
+    # use student list to determine course capacity and weighting
+    def get_values(self, all_students: list[Student]):
         self.enrollment = 0
+        self.clear_weight()
         for student in all_students:
             courses = student.get_courses
             if self.code in courses:
@@ -24,6 +28,10 @@ class Course:
             if course is not self.code:
                 self.weight.setdefault(course, 0)
                 self.weight[course] += 1
+
+    def clear_weight (self):
+        for course in self.weight:
+            self.weight[course] = 0
 
 
 
