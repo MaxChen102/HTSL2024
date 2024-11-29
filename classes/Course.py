@@ -7,33 +7,27 @@ class Course:
     code: str
     weight: dict[str, int]
     enrollment: int
+    exam: int
+    start: int
+    end: int
 
     def __init__(self, code: str):
         self.code = code
         self.enrollment = 0
         self.weight = {}
+        self.exam = 0
+        self.start = 0
+        self.end = 0
 
-    # use student list to determine course capacity and weighting
-    def get_values(self, all_students: list[Student]):
-        self.enrollment = 0
-        self.clear_weight()
-        for student in all_students:
-            courses = student.get_courses
-            if self.code in courses:
-                self.enrollment += 1
-                self.update_weight(courses)
+    def get_code(self):
+        return self.code
 
-    def update_weight (self, enrolled_courses: list[str]):
-        for course in enrolled_courses:
-            if course is not self.code:
-                self.weight.setdefault(course, 0)
-                self.weight[course] += 1
+    def set_weight (self, course_code: str):
+        self.weight.setdefault(course_code,0)
+        self.weight[course_code]+=1
 
-    def clear_weight (self):
-        for course in self.weight:
-            self.weight[course] = 0
-
-
+    def add_student (self):
+        self.enrollment+=1
 
 
 
