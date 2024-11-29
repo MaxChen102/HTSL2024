@@ -5,7 +5,7 @@ class Room:
     def __init__(self, size: int):
         self.size = size
         self.times = {}
-        for time in range(9, 18):
+        for time in range(9, 21):
             self.times[time] = True
 
     def book(self, interval: tuple(int, int)) -> str:
@@ -15,4 +15,6 @@ class Room:
         for i in range(interval[0], interval[1]):
             self.times[i] = False
             return "Successfully booked"
+
+
 
