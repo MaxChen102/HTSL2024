@@ -2,9 +2,11 @@ from classes import Course
 
 
 class Student:
+    username: str
     courses: list[Course]
 
-    def __init__(self):
+    def __init__(self, username: str):
+        self.username = username
         self.courses = []
 
     def add_course(self, code: Course):
