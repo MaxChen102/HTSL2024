@@ -1,8 +1,16 @@
-class student:
-    courses: list[int]
+from classes import Course
 
-    def __init__(self):
+
+class Student:
+    username: str
+    courses: list[Course]
+
+    def __init__(self, username: str):
+        self.username = username
         self.courses = []
 
-    def add_course(self, code: int):
+    def add_course(self, code: Course):
         self.courses.append(code)
+
+    def get_courses(self):
+        return self.courses
