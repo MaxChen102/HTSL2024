@@ -22,6 +22,9 @@ class Course:
     def get_code(self):
         return self.code
 
+    def get_enrollment(self):
+        return self.enrollment
+
     def set_weight (self, course_code: str):
         self.weight.setdefault(course_code,0)
         self.weight[course_code]+=1
